@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Свадебное приглашение | Кирилл & Виктория</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== БАЗОВЫЙ СБРОС ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            background: #fcf6f3;
+            color: #3d2a23;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===== АНИМАЦИИ ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatHeart {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        @keyframes pulseHeart {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.12); }
+        }
+
+        .animate-on-load {
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards;
+        }
+
+        .animate-on-load.delay-1 { animation-delay: 0.2s; }
+        .animate-on-load.delay-2 { animation-delay: 0.4s; }
+        .animate-on-load.delay-3 { animation-delay: 0.6s; }
+        .animate-on-load.delay-4 { animation-delay: 0.8s; }
+        .animate-on-load.delay-5 { animation-delay: 1.0s; }
+        .animate-on-load.delay-6 { animation-delay: 1.2s; }
+        .animate-on-load.delay-7 { animation-delay: 1.4s; }
+        .animate-on-load.delay-8 { animation-delay: 1.6s; }
+        .animate-on-load.delay-9 { animation-delay: 1.8s; }
+        .animate-on-load.delay-10 { animation-delay: 2.0s; }
+
+        /* ===== ОБЩИЕ КОМПОНЕНТЫ ===== */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.8rem;
+            color: #8b4c3c;
+            text-align: center;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-weight: 300;
+            font-size: 0.95rem;
+            color: #7a5a50;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .section-divider {
+            text-align: center;
+            font-size: 1.6rem;
+            color: #c0392b;
+            margin: 10px 0 25px;
+            letter-spacing: 12px;
+            opacity: 0.5;
+        }
+
+        /* ===== СЕКЦИЯ HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(160deg, #fce9e6 0%, #f8d5d0 60%, #f0c4bb 100%);
+            padding: 50px 16px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '❤';
+            position: absolute;
+            font-size: 20rem;
+            color: rgba(192, 57, 43, 0.04);
+            top: -10%;
+            right: -10%;
+            transform: rotate(20deg);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '❤';
+            position: absolute;
+            font-size: 16rem;
+            color: rgba(192, 57, 43, 0.03);
+            bottom: -5%;
+            left: -10%;
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .floating-hearts i {
+            position: absolute;
+            color: rgba(192, 57, 43, 0.05);
+            font-size: 1.6rem;
+            animation: floatHeart 6s ease-in-out infinite;
+        }
+
+        .floating-hearts i:nth-child(1) { top: 8%; left: 8%; animation-delay: 0s; font-size: 2rem; }
+        .floating-hearts i:nth-child(2) { top: 15%; right: 12%; animation-delay: 1.5s; font-size: 1.5rem; }
+        .floating-hearts i:nth-child(3) { bottom: 25%; left: 6%; animation-delay: 3s; font-size: 2.4rem; }
+        .floating-hearts i:nth-child(4) { bottom: 15%; right: 8%; animation-delay: 4.5s; font-size: 1.8rem; }
+        .floating-hearts i:nth-child(5) { top: 45%; left: 45%; animation-delay: 2s; font-size: 3.2rem; opacity: 0.03; }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #5a3e36;
+            border: 1px solid rgba(255, 215, 200, 0.5);
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+        }
+
+        .hero .invitation-text {
+            font-family: 'Parisienne', cursive;
+            font-size: 1.6rem;
+            color: #6a453a;
+            margin: 8px 0 4px;
+            letter-spacing: 2px;
+        }
+
+        .hero .invitation-text-small {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: #7a5a50;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: #3d2a23;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            text-shadow: 4px 4px 0 rgba(255, 200, 180, 0.15);
+        }
+
+        .hero h1 .ampersand {
+            color: #c0392b;
+            font-size: 3.6rem;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: #8b4c3c;
+            color: #fff;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 400;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 12px 30px rgba(139, 76, 60, 0.3);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .hero-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ===== СЕКЦИЯ ПАРЫ ===== */
+        .couple-section {
+            padding: 60px 0 50px;
+            background: #fffbf9;
+        }
+
+        .couple-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .couple-item {
+            text-align: center;
+            flex: 0 1 auto;
+            min-width: 120px;
+        }
+
+        .couple-item .photo-wrap {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 12px;
+            border: 6px solid #fff;
+            box-shadow: 0 12px 30px rgba(90, 62, 54, 0.15);
+            transition: transform 0.3s ease;
+            background: #f0ddd6;
+        }
+
+        .couple-item .photo-wrap:active {
+            transform: scale(0.95);
+        }
+
+        .couple-item .photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .couple-item h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #4d322a;
+            margin-top: 4px;
+        }
+
+        .couple-item .role {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            color: #a17a6e;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .heart-divider-inline {
+            font-size: 2.8rem;
+            color: #c0392b;
+            animation: pulseHeart 1.8s infinite;
+            text-shadow: 0 0 40px rgba(192, 57, 43, 0.15);
+            padding: 0 6px;
+            flex-shrink: 0;
+        }
+
+        /* ===== ПРИВЕТСТВИЕ ===== */
+        .greeting-section {
+            padding: 40px 0 35px;
+            background: #fffbf9;
+            text-align: center;
+            border-top: 2px dashed #f0d2ca;
+            border-bottom: 2px dashed #f0d2ca;
+        }
+
+        .greeting-section .greeting-text {
+            font-family: 'Parisienne', cursive;
+            font-size: 1.8rem;
+            color: #4d322a;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+
+        .greeting-section .greeting-text .highlight {
+            color: #8b4c3c;
+        }
+
+        .greeting-section .greeting-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: #7a5a50;
+            margin-top: 12px;
+            letter-spacing: 2px;
+            padding: 0 10px;
+        }
+
+        /* ===== СЕКЦИЯ ПРИГЛАШЕНИЯ ===== */
+        .invite-section {
+            padding: 50px 0 60px;
+            background: linear-gradient(145deg, #f8e3dd, #f0d2ca);
+            text-align: center;
+        }
+
+        .invite-section .invite-text {
+            font-family: 'Parisienne', cursive;
+            font-size: 2rem;
+            color: #3d2a23;
+            line-height: 1.4;
+            max-width: 700px;
+            margin: 0 auto 16px;
+            padding: 0 10px;
+        }
+
+        .invite-section .invite-text .highlight {
+            color: #8b4c3c;
+        }
+
+        .invite-section .invite-text-small {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: #5a3e36;
+            font-weight: 400;
+            letter-spacing: 2px;
+            max-width: 650px;
+            margin: 0 auto 25px;
+            line-height: 1.7;
+            padding: 0 10px;
+        }
+
+        .invite-section .invite-text-small i {
+            color: #c0392b;
+            margin: 0 4px;
+        }
+
+        .invite-card {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 28px 20px;
+            border-radius: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .invite-card .card-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(139, 76, 60, 0.08);
+        }
+
+        .invite-card .card-line:last-child {
+            border-bottom: none;
+        }
+
+        .invite-card .card-icon {
+            font-size: 1.3rem;
+            color: #8b4c3c;
+            min-width: 32px;
+            text-align: center;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .invite-card .card-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #a17a6e;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .invite-card .card-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: #3d2a23;
+            font-weight: 500;
+            line-height: 1.4;
+            word-break: break-word;
+        }
+
+        .invite-card .card-value small {
+            font-weight: 400;
+            color: #7a5a50;
+            font-size: 0.85rem;
+        }
+
+        .invite-card .card-value .address-detail {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #7a5a50;
+            margin-top: 2px;
+        }
+
+        .invite-card .card-value .highlight-text {
+            color: #8b4c3c;
+            font-weight: 600;
+        }
+
+        /* ===== ДЕТАЛЬНАЯ ИНФОРМАЦИЯ ===== */
+        .details-section {
+            padding: 50px 0 60px;
+            background: #fffbf9;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .detail-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 24px 18px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 215, 200, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-card:active {
+            transform: scale(0.97);
+        }
+
+        .detail-card .detail-icon {
+            font-size: 2rem;
+            color: #8b4c3c;
+            margin-bottom: 10px;
+        }
+
+        .detail-card h4 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.6rem;
+            color: #4d322a;
+            margin-bottom: 8px;
+        }
+
+        .detail-card p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: #5a3e36;
+            line-height: 1.5;
+        }
+
+        .detail-card .badge {
+            display: inline-block;
+            background: #8b4c3c;
+            color: #fff;
+            padding: 3px 14px;
+            border-radius: 30px;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 8px;
+        }
+
+        .detail-card .badge.pink {
+            background: #c0392b;
+        }
+
+        /* ===== RSVP ===== */
+        .rsvp-section {
+            padding: 60px 16px 50px;
+            background: linear-gradient(160deg, #f0d2ca, #e8c4bb);
+            text-align: center;
+        }
+
+        .rsvp-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 35px 20px;
+            border-radius: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .rsvp-box h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.6rem;
+            color: #3d2a23;
+            margin-bottom: 8px;
+        }
+
+        .rsvp-box p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: #5a3e36;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .rsvp-box .rsvp-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #7a5a50;
+            margin-bottom: 18px;
+        }
+
+        .rsvp-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: stretch;
+        }
+
+        .rsvp-contacts a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: #8b4c3c;
+            color: #fff;
+            border-radius: 60px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            width: 100%;
+        }
+
+        .rsvp-contacts a:active {
+            transform: scale(0.95);
+        }
+
+        .rsvp-contacts a i {
+            font-size: 1.1rem;
+        }
+
+        .rsvp-contacts a.whatsapp {
+            background: #25D366;
+        }
+
+        .rsvp-contacts a.whatsapp:active {
+            background: #1da851;
+        }
+
+        .rsvp-contacts a.email {
+            background: #6c5b55;
+        }
+
+        .rsvp-contacts a.email:active {
+            background: #544640;
+        }
+
+        /* ===== МУЗЫКА ===== */
+        .music-section {
+            padding: 50px 16px 60px;
+            background: #fffbf9;
+            text-align: center;
+        }
+
+        .music-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .music-heart-btn {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #fce9e6, #f5d5ce);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 12px 30px rgba(192, 57, 43, 0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #c0392b;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .music-heart-btn:active {
+            transform: scale(0.9) !important;
+        }
+
+        .music-heart-btn .fa-heart {
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 6px 16px rgba(192, 57, 43, 0.2));
+        }
+
+        .music-heart-btn.playing .fa-heart {
+            animation: heartBeat 0.8s infinite alternate;
+            color: #e74c3c;
+            text-shadow: 0 0 40px rgba(231, 76, 60, 0.5);
+        }
+
+        .music-label {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: #4d322a;
+            background: rgba(255, 240, 230, 0.6);
+            padding: 10px 30px;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 215, 200, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            user-select: none;
+            font-family: 'Cormorant Garamond', serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .music-label:active {
+            transform: scale(0.95);
+        }
+
+        .music-note {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: #a17a6e;
+            letter-spacing: 2px;
+            font-weight: 300;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* ===== ФУТЕР ===== */
+        .footer-section {
+            padding: 40px 16px 30px;
+            background: #3d2a23;
+            text-align: center;
+            color: #d4b8ae;
+        }
+
+        .footer-section .footer-hearts {
+            font-size: 1.6rem;
+            color: #c0392b;
+            letter-spacing: 12px;
+            margin-bottom: 12px;
+        }
+
+        .footer-section .couple-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: #f0d2ca;
+            margin-bottom: 8px;
+        }
+
+        .footer-section p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            opacity: 0.7;
+        }
+
+        /* ===== АДАПТИВ ===== */
+
+        /* Планшеты и маленькие ноутбуки */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero .invitation-text { font-size: 1.4rem; }
+            .section-title { font-size: 2.4rem; }
+            .invite-card { padding: 24px 18px; }
+            .details-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* Телефоны (горизонтальная ориентация и большие телефоны) */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 90vh;
+                padding: 40px 14px 50px;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero h1 .ampersand {
+                font-size: 2.4rem;
+            }
+            .hero .invitation-text {
+                font-size: 1.2rem;
+            }
+            .hero .invitation-text-small {
+                font-size: 0.9rem;
+                letter-spacing: 3px;
+            }
+            .hero-badge {
+                font-size: 0.6rem;
+                padding: 6px 18px;
+                letter-spacing: 4px;
+            }
+            .hero-btn {
+                padding: 12px 32px;
+                font-size: 0.8rem;
+                letter-spacing: 2px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .section-subtitle {
+                font-size: 0.8rem;
+                letter-spacing: 3px;
+                margin-bottom: 20px;
+            }
+
+            .couple-item .photo-wrap {
+                width: 140px;
+                height: 140px;
+                border-width: 5px;
+            }
+            .couple-item h3 {
+                font-size: 1.7rem;
+            }
+            .heart-divider-inline {
+                font-size: 2.2rem;
+            }
+            .couple-row {
+                gap: 12px;
+            }
+
+            .greeting-section .greeting-text {
+                font-size: 1.5rem;
+            }
+            .greeting-section .greeting-sub {
+                font-size: 0.9rem;
+            }
+
+            .invite-section .invite-text {
+                font-size: 1.7rem;
+            }
+            .invite-section .invite-text-small {
+                font-size: 0.95rem;
+            }
+
+            .invite-card .card-value {
+                font-size: 0.95rem;
+            }
+            .invite-card .card-value small {
+                font-size: 0.8rem;
+            }
+            .invite-card .card-value .address-detail {
+                font-size: 0.8rem;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .detail-card {
+                padding: 20px 16px;
+            }
+            .detail-card h4 {
+                font-size: 1.4rem;
+            }
+            .detail-card p {
+                font-size: 0.9rem;
+            }
+
+            .rsvp-box {
+                padding: 28px 16px;
+                border-radius: 32px;
+            }
+            .rsvp-box h2 {
+                font-size: 2.2rem;
+            }
+            .rsvp-box p {
+                font-size: 0.95rem;
+            }
+
+            .music-heart-btn {
+                width: 100px;
+                height: 100px;
+                font-size: 3.4rem;
+            }
+            .music-label {
+                font-size: 1rem;
+                padding: 8px 24px;
+            }
+
+            .footer-section .couple-names {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Маленькие телефоны (до 480px) */
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 85vh;
+                padding: 30px 12px 40px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero h1 .ampersand {
+                font-size: 2rem;
+            }
+            .hero .invitation-text {
+                font-size: 1rem;
+            }
+            .hero .invitation-text-small {
+                font-size: 0.8rem;
+                letter-spacing: 2px;
+            }
+            .hero-badge {
+                font-size: 0.55rem;
+                padding: 5px 14px;
+                letter-spacing: 3px;
+            }
+            .hero-btn {
+                padding: 10px 26px;
+                font-size: 0.75rem;
+                letter-spacing: 2px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .section-subtitle {
+                font-size: 0.7rem;
+                letter-spacing: 2px;
+                margin-bottom: 16px;
+            }
+
+            .couple-item .photo-wrap {
+                width: 110px;
+                height: 110px;
+                border-width: 4px;
+            }
+            .couple-item h3 {
+                font-size: 1.4rem;
+            }
+            .couple-item .role {
+                font-size: 0.6rem;
+                letter-spacing: 3px;
+            }
+            .heart-divider-inline {
+                font-size: 1.8rem;
+                padding: 0 4px;
+            }
+            .couple-row {
+                gap: 8px;
+            }
+
+            .greeting-section {
+                padding: 30px 0 25px;
+            }
+            .greeting-section .greeting-text {
+                font-size: 1.3rem;
+            }
+            .greeting-section .greeting-sub {
+                font-size: 0.8rem;
+                margin-top: 8px;
+            }
+
+            .invite-section {
+                padding: 35px 0 40px;
+            }
+            .invite-section .invite-text {
+                font-size: 1.4rem;
+            }
+            .invite-section .invite-text-small {
+                font-size: 0.85rem;
+                letter-spacing: 1px;
+            }
+
+            .invite-card {
+                padding: 18px 14px;
+                border-radius: 28px;
+            }
+            .invite-card .card-line {
+                padding: 10px 0;
+                gap: 10px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .invite-card .card-icon {
+                font-size: 1.1rem;
+                min-width: 28px;
+            }
+            .invite-card .card-label {
+                font-size: 0.55rem;
+                letter-spacing: 1.5px;
+            }
+            .invite-card .card-value {
+                font-size: 0.85rem;
+            }
+            .invite-card .card-value small {
+                font-size: 0.75rem;
+            }
+            .invite-card .card-value .address-detail {
+                font-size: 0.75rem;
+            }
+
+            .detail-card {
+                padding: 16px 12px;
+                border-radius: 18px;
+            }
+            .detail-card .detail-icon {
+                font-size: 1.6rem;
+                margin-bottom: 6px;
+            }
+            .detail-card h4 {
+                font-size: 1.2rem;
+            }
+            .detail-card p {
+                font-size: 0.8rem;
+            }
+            .detail-card .badge {
+                font-size: 0.5rem;
+                padding: 2px 10px;
+                letter-spacing: 1.5px;
+            }
+
+            .rsvp-box {
+                padding: 22px 14px;
+                border-radius: 24px;
+            }
+            .rsvp-box h2 {
+                font-size: 1.8rem;
+            }
+            .rsvp-box p {
+                font-size: 0.85rem;
+                margin-bottom: 14px;
+            }
+            .rsvp-box .rsvp-date {
+                font-size: 0.65rem;
+                letter-spacing: 2px;
+                margin-bottom: 14px;
+            }
+            .rsvp-contacts a {
+                padding: 10px 16px;
+                font-size: 0.75rem;
+            }
+            .rsvp-contacts a i {
+                font-size: 0.9rem;
+            }
+
+            .music-heart-btn {
+                width: 85px;
+                height: 85px;
+                font-size: 2.8rem;
+                border-width: 2px;
+            }
+            .music-label {
+                font-size: 0.9rem;
+                padding: 6px 18px;
+                letter-spacing: 3px;
+                margin-top: 14px;
+            }
+            .music-note {
+                font-size: 0.8rem;
+            }
+            .music-section {
+                padding: 35px 12px 40px;
+            }
+
+            .footer-section {
+                padding: 30px 12px 24px;
+            }
+            .footer-section .footer-hearts {
+                font-size: 1.2rem;
+                letter-spacing: 8px;
+            }
+            .footer-section .couple-names {
+                font-size: 1.5rem;
+            }
+            .footer-section p {
+                font-size: 0.75rem;
+            }
+
+            .section-divider {
+                font-size: 1.2rem;
+                letter-spacing: 8px;
+            }
+        }
+
+        /* Очень маленькие телефоны (до 360px) */
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero h1 .ampersand {
+                font-size: 1.6rem;
+            }
+            .hero .invitation-text {
+                font-size: 0.85rem;
+            }
+            .hero-btn {
+                padding: 8px 20px;
+                font-size: 0.7rem;
+            }
+
+            .couple-item .photo-wrap {
+                width: 90px;
+                height: 90px;
+                border-width: 3px;
+            }
+            .couple-item h3 {
+                font-size: 1.2rem;
+            }
+            .heart-divider-inline {
+                font-size: 1.4rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .greeting-section .greeting-text {
+                font-size: 1.1rem;
+            }
+            .invite-section .invite-text {
+                font-size: 1.2rem;
+            }
+            .invite-card .card-value {
+                font-size: 0.75rem;
+            }
+
+            .rsvp-box h2 {
+                font-size: 1.5rem;
+            }
+            .rsvp-box p {
+                font-size: 0.75rem;
+            }
+
+            .music-heart-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 2.2rem;
+            }
+            .music-label {
+                font-size: 0.75rem;
+                padding: 5px 14px;
+                letter-spacing: 2px;
+            }
+        }
+
+        /* Для устройств с touch (убираем hover эффекты) */
+        @media (hover: none) {
+            .couple-item .photo-wrap:hover {
+                transform: none;
+            }
+            .hero-btn:hover {
+                transform: none;
+                background: #8b4c3c;
+            }
+            .music-heart-btn:hover {
+                transform: none;
+            }
+            .detail-card:hover {
+                transform: none;
+            }
+            .rsvp-contacts a:hover {
+                transform: none;
+            }
+        }
+
+        /* Для устройств с высоким DPI */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .hero {
+                background: linear-gradient(160deg, #fce9e6 0%, #f8d5d0 60%, #f0c4bb 100%);
+            }
+        }
+
+        /* Безопасные отступы для iPhone Notch */
+        @supports (padding: max(0px)) {
+            .hero {
+                padding-left: max(16px, env(safe-area-inset-left));
+                padding-right: max(16px, env(safe-area-inset-right));
+            }
+            .footer-section {
+                padding-bottom: max(30px, env(safe-area-inset-bottom));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="floating-hearts">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge animate-on-load delay-1">
+                <i class="fas fa-rings"></i> Приглашение
+            </div>
+
+            <div class="invitation-text animate-on-load delay-2">
+                Наше особенное приглашение
+            </div>
+            <div class="invitation-text-small animate-on-load delay-3">
+                ДЛЯ ВАС!
+            </div>
+
+            <h1 class="animate-on-load delay-4">
+                Кирилл <span class="ampersand">&</span> Виктория
+            </h1>
+
+            <a href="#invite" class="hero-btn animate-on-load delay-6">Открыть приглашение</a>
+        </div>
+    </section>
+
+    <!-- ===== СЕКЦИЯ ПАРЫ ===== -->
+    <section class="couple-section" id="couple">
+        <div class="container">
+            <h2 class="section-title animate-on-load delay-1">Жених & Невеста</h2>
+            <p class="section-subtitle animate-on-load delay-2">Сердцем к сердцу</p>
+
+            <div class="couple-row">
+                <!-- Жених -->
+                <div class="couple-item animate-on-load delay-3">
+                    <div class="photo-wrap">
+                        <img src="жених.jpg" alt="Кирилл - жених" loading="lazy" />
+                    </div>
+                    <h3>Кирилл</h3>
+                    <div class="role">Жених</div>
+                </div>
+
+                <div class="heart-divider-inline animate-on-load delay-4">
+                    <i class="fas fa-heart"></i>
+                </div>
+
+                <!-- Невеста -->
+                <div class="couple-item animate-on-load delay-5">
+                    <div class="photo-wrap">
+                        <img src="невеста.jpg" alt="Виктория - невеста" loading="lazy" />
+                    </div>
+                    <h3>Виктория</h3>
+                    <div class="role">Невеста</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ПРИВЕТСТВИЕ ===== -->
+    <section class="greeting-section animate-on-load delay-2">
+        <div class="container">
+            <div class="greeting-text">
+                <span class="highlight">Дорогие</span> наши родные, близкие и <span class="highlight">друзья</span>!
+            </div>
+            <div class="greeting-sub">
+                <i class="fas fa-heart" style="color:#c0392b; margin:0 6px;"></i>
+                Мы рады приветствовать вас на нашем празднике любви
+                <i class="fas fa-heart" style="color:#c0392b; margin:0 6px;"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ПРИГЛАШЕНИЕ С ДЕТАЛЯМИ ===== -->
+    <section class="invite-section" id="invite">
+        <div class="container">
+            <div class="invite-text animate-on-load delay-1">
+                Приглашаем отпраздновать<br />
+                самое важное событие в нашей жизни —
+                <span class="highlight">день нашей свадьбы</span>!
+            </div>
+
+            <div class="invite-card animate-on-load delay-2">
+                <div class="card-line">
+                    <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div>
+                        <div class="card-label">Дата и время</div>
+                        <div class="card-value">
+                            <span class="highlight-text">Пятнадцатое августа</span> две тысячи двадцать шестого года
+                            <br /><small>Сбор гостей в <strong>16:45</strong> · Церемония в <strong>17:00</strong></small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-line">
+                    <div class="card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <div class="card-label">Место проведения</div>
+                        <div class="card-value">
+                            Ресторан «<strong>Счастье</strong>»
+                            <span class="address-detail">г. Москва, ул. Цветочная, д. 15, стр. 2</span>
+                            <span class="address-detail"><i class="fas fa-subway" style="color:#8b4c3c;"></i> м. «Парк культуры», выход к ул. Цветочной</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-line">
+                    <div class="card-icon"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <div class="card-label">Программа дня</div>
+                        <div class="card-value">
+                            <strong>16:45</strong> — Сбор гостей
+                            <br /><strong>17:00</strong> — Торжественная церемония
+                            <br /><strong>17:45</strong> — Фуршет и фотосессия
+                            <br /><strong>19:00</strong> — Свадебный банкет
+                            <br /><strong>22:00</strong> — Торт и танцы
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider animate-on-load delay-3">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ДЕТАЛЬНАЯ ИНФОРМАЦИЯ ===== -->
+    <section class="details-section" id="details">
+        <div class="container">
+            <h2 class="section-title animate-on-load delay-1">Важная информация</h2>
+            <p class="section-subtitle animate-on-load delay-2">Чтобы ваш день был комфортным</p>
+
+            <div class="details-grid">
+                <div class="detail-card animate-on-load delay-3">
+                    <div class="detail-icon"><i class="fas fa-tshirt"></i></div>
+                    <h4>Дресс-код</h4>
+                    <p>Мы будем рады видеть вас в <strong>светлых и пастельных тонах</strong>.<br />
+                    <span style="font-size:0.85rem; color:#8b4c3c;">«Небесная элегантность»</span></p>
+                    <span class="badge">Рекомендуем</span>
+                </div>
+
+                <div class="detail-card animate-on-load delay-4">
+                    <div class="detail-icon"><i class="fas fa-users"></i></div>
+                    <h4>+1 и дети</h4>
+                    <p>Вы можете прийти со <strong>спутником</strong> — дайте нам знать заранее.<br />
+                    <i class="fas fa-child" style="color:#8b4c3c;"></i> <strong>Дети</strong> приветствуются, для них будет отдельная развлекательная программа.</p>
+                    <span class="badge pink">Семейный праздник</span>
+                </div>
+
+                <div class="detail-card animate-on-load delay-5">
+                    <div class="detail-icon"><i class="fas fa-gift"></i></div>
+                    <h4>О подарках</h4>
+                    <p>Ваше присутствие — лучший подарок.<br />
+                    Если вы хотите порадовать нас, мы будем рады <strong>денежному конверту</strong> или <strong>сертификатам</strong> на наши мечты.<br />
+                    <span style="font-size:0.85rem; color:#7a5a50;">Список пожеланий у организатора.</span></p>
+                    <span class="badge">С любовью</span>
+                </div>
+
+                <div class="detail-card animate-on-load delay-6">
+                    <div class="detail-icon"><i class="fas fa-phone-alt"></i></div>
+                    <h4>Координатор</h4>
+                    <p>По всем вопросам обращайтесь к нашему <strong>организатору</strong>:</p>
+                    <p style="font-size:1.05rem; color:#8b4c3c; font-weight:600;">Анна</p>
+                    <p style="font-size:0.85rem;">
+                        <i class="fas fa-phone" style="color:#8b4c3c;"></i> +7 (999) 456-78-90
+                        <br /><i class="fas fa-telegram" style="color:#8b4c3c;"></i> @anna_wedding_organizer
+                    </p>
+                    <span class="badge pink">Всегда на связи</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RSVP ===== -->
+    <section class="rsvp-section" id="rsvp">
+        <div class="container">
+            <div class="rsvp-box animate-on-load delay-1">
+                <h2>Подтвердите присутствие</h2>
+                <p>Пожалуйста, сообщите нам, сможете ли вы разделить с нами этот день</p>
+                <div class="rsvp-date">До <strong>1 августа 2026</strong></div>
+
+                <div class="rsvp-contacts">
+                    <a href="tel:+79991234567" class="animate-on-load delay-3">
+                        <i class="fas fa-phone"></i> +7 (999) 123-45-67
+                    </a>
+                    <a href="https://wa.me/79991234567" target="_blank" class="whatsapp animate-on-load delay-4">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="mailto:wedding@example.com" class="email animate-on-load delay-5">
+                        <i class="fas fa-envelope"></i> Написать
+                    </a>
+                </div>
+
+                <p style="margin-top:20px; font-size:0.85rem; opacity:0.7; letter-spacing:2px;">
+                    <i class="fas fa-heart" style="color:#c0392b;"></i>
+                    Будем ждать вас с нетерпением!
+                    <i class="fas fa-heart" style="color:#c0392b;"></i>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== МУЗЫКА ===== -->
+    <section class="music-section" id="music">
+        <div class="container">
+            <h2 class="section-title animate-on-load delay-1">Свадебная музыка</h2>
+            <p class="section-subtitle animate-on-load delay-2">Нажмите на сердечко, чтобы создать настроение</p>
+
+            <div class="music-wrapper">
+                <button class="music-heart-btn animate-on-load delay-3" id="musicBtn" aria-label="Включить музыку">
+                    <i class="fas fa-heart" id="heartIcon"></i>
+                </button>
+                <div class="music-label animate-on-load delay-4" id="musicLabel">❤ Включить музыку</div>
+                <div class="music-note animate-on-load delay-5">
+                    <i class="fas fa-music"></i> Нежная мелодия для вашего торжества
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ФУТЕР ===== -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-hearts">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="couple-names">Кирилл & Виктория</div>
+            <p>С любовью и благодарностью к каждому из вас</p>
+            <p style="margin-top:6px; font-size:0.75rem; opacity:0.5;">
+                <i class="far fa-calendar-alt"></i> 15 августа 2026
+            </p>
+        </div>
+    </footer>
+
+    <!-- ===== АУДИО ===== -->
+    <audio id="weddingAudio" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+        Ваш браузер не поддерживает аудио.
+    </audio>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+            "use strict";
+
+            const audio = document.getElementById('weddingAudio');
+            const musicBtn = document.getElementById('musicBtn');
+            const heartIcon = document.getElementById('heartIcon');
+            const musicLabel = document.getElementById('musicLabel');
+
+            let isPlaying = false;
+
+            function updateUI(playing) {
+                if (playing) {
+                    musicBtn.classList.add('playing');
+                    heartIcon.style.color = '#e74c3c';
+                    musicLabel.textContent = '🎵 Музыка играет';
+                    musicLabel.style.background = 'rgba(200, 80, 60, 0.15)';
+                    musicLabel.style.borderColor = '#e74c3c';
+                } else {
+                    musicBtn.classList.remove('playing');
+                    heartIcon.style.color = '#c0392b';
+                    musicLabel.textContent = '❤ Включить музыку';
+                    musicLabel.style.background = 'rgba(255, 240, 230, 0.6)';
+                    musicLabel.style.borderColor = 'rgba(255, 215, 200, 0.3)';
+                }
+            }
+
+            function toggleMusic() {
+                if (isPlaying) {
+                    audio.pause();
+                    isPlaying = false;
+                    updateUI(false);
+                } else {
+                    const playPromise = audio.play();
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            isPlaying = true;
+                            updateUI(true);
+                        }).catch(function(err) {
+                            console.warn('Автовоспроизведение заблокировано:', err);
+                            musicLabel.textContent = '👆 Нажмите ещё раз';
+                            setTimeout(function() {
+                                if (!isPlaying) {
+                                    musicLabel.textContent = '❤ Включить музыку';
+                                    musicLabel.style.background = 'rgba(255, 240, 230, 0.6)';
+                                }
+                            }, 2000);
+                        });
+                    }
+                }
+            }
+
+            musicBtn.addEventListener('click', toggleMusic);
+            musicLabel.addEventListener('click', toggleMusic);
+
+            musicBtn.addEventListener('touchstart', function(e) {
+                // Пассивный обработчик для touch устройств
+            }, { passive: true });
+
+            updateUI(false);
+
+            console.log('❤️ Свадебный лендинг загружен! Кирилл & Виктория');
+        })();
+    </script>
+
+</body>
+</html>
