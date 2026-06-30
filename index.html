@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>Свадебное приглашение | Кирилл & Виктория</title>
-    <!-- Font Awesome -->
+    <title>Кирилл & Виктория | Свадебное приглашение</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
     <style>
-        /* ===== БАЗОВЫЙ СБРОС ===== */
         * {
             margin: 0;
             padding: 0;
@@ -22,28 +20,21 @@
 
         body {
             font-family: 'Cormorant Garamond', 'Georgia', serif;
-            background: #fcf6f3;
+            background: #faf5f0;
             color: #3d2a23;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ===== АНИМАЦИИ ===== */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes floatHeart {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-10px) scale(1.05); }
+            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+            50% { transform: translateY(-12px) scale(1.06) rotate(4deg); }
         }
 
         @keyframes pulseHeart {
@@ -51,96 +42,94 @@
             50% { transform: scale(1.2); }
         }
 
-        @keyframes heartBeat {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.12); }
+        @keyframes shimmerGold {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(192, 57, 43, 0.06), 0 0 60px rgba(212, 175, 55, 0.03); }
+            50% { box-shadow: 0 0 40px rgba(192, 57, 43, 0.12), 0 0 80px rgba(212, 175, 55, 0.06); }
         }
 
         .animate-on-load {
             opacity: 0;
-            animation: fadeInUp 1.2s ease forwards;
+            animation: fadeInUp 1s ease forwards;
         }
 
-        .animate-on-load.delay-1 { animation-delay: 0.2s; }
-        .animate-on-load.delay-2 { animation-delay: 0.4s; }
-        .animate-on-load.delay-3 { animation-delay: 0.6s; }
-        .animate-on-load.delay-4 { animation-delay: 0.8s; }
-        .animate-on-load.delay-5 { animation-delay: 1.0s; }
-        .animate-on-load.delay-6 { animation-delay: 1.2s; }
-        .animate-on-load.delay-7 { animation-delay: 1.4s; }
-        .animate-on-load.delay-8 { animation-delay: 1.6s; }
-        .animate-on-load.delay-9 { animation-delay: 1.8s; }
-        .animate-on-load.delay-10 { animation-delay: 2.0s; }
+        .animate-on-load.delay-1 { animation-delay: 0.15s; }
+        .animate-on-load.delay-2 { animation-delay: 0.3s; }
+        .animate-on-load.delay-3 { animation-delay: 0.45s; }
+        .animate-on-load.delay-4 { animation-delay: 0.6s; }
+        .animate-on-load.delay-5 { animation-delay: 0.75s; }
+        .animate-on-load.delay-6 { animation-delay: 0.9s; }
+        .animate-on-load.delay-7 { animation-delay: 1.05s; }
+        .animate-on-load.delay-8 { animation-delay: 1.2s; }
 
-        /* ===== ОБЩИЕ КОМПОНЕНТЫ ===== */
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 16px;
+            padding: 0 20px;
         }
 
         .section-title {
             font-family: 'Great Vibes', cursive;
             font-size: 2.8rem;
-            color: #8b4c3c;
             text-align: center;
-            margin-bottom: 12px;
-            letter-spacing: 2px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #8b4c3c, #c9a84c, #8b4c3c);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmerGold 5s ease-in-out infinite;
         }
 
         .section-subtitle {
             text-align: center;
             font-weight: 300;
-            font-size: 0.95rem;
-            color: #7a5a50;
-            letter-spacing: 4px;
+            font-size: 0.9rem;
+            color: #a08070;
+            letter-spacing: 5px;
             text-transform: uppercase;
             margin-bottom: 30px;
             font-family: 'Montserrat', sans-serif;
         }
 
-        .section-divider {
-            text-align: center;
-            font-size: 1.6rem;
-            color: #c0392b;
-            margin: 10px 0 25px;
-            letter-spacing: 12px;
-            opacity: 0.5;
-        }
-
-        /* ===== СЕКЦИЯ HERO ===== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(160deg, #fce9e6 0%, #f8d5d0 60%, #f0c4bb 100%);
-            padding: 50px 16px 60px;
+            background: linear-gradient(165deg, #fce9e6 0%, #f8d5d0 35%, #f0c4bb 65%, #e8b8ae 100%);
+            padding: 50px 20px 60px;
             position: relative;
             overflow: hidden;
         }
 
         .hero::before {
-            content: '❤';
+            content: '✦';
             position: absolute;
-            font-size: 20rem;
-            color: rgba(192, 57, 43, 0.04);
-            top: -10%;
-            right: -10%;
-            transform: rotate(20deg);
+            font-size: 35rem;
+            color: rgba(212, 175, 55, 0.025);
+            top: -20%;
+            right: -15%;
+            transform: rotate(30deg);
             pointer-events: none;
+            font-family: 'Georgia', serif;
         }
 
         .hero::after {
-            content: '❤';
+            content: '✦';
             position: absolute;
-            font-size: 16rem;
-            color: rgba(192, 57, 43, 0.03);
-            bottom: -5%;
-            left: -10%;
-            transform: rotate(-15deg);
+            font-size: 28rem;
+            color: rgba(212, 175, 55, 0.02);
+            bottom: -15%;
+            left: -15%;
+            transform: rotate(-25deg);
             pointer-events: none;
+            font-family: 'Georgia', serif;
         }
 
         .floating-hearts {
@@ -157,15 +146,15 @@
         .floating-hearts i {
             position: absolute;
             color: rgba(192, 57, 43, 0.05);
-            font-size: 1.6rem;
-            animation: floatHeart 6s ease-in-out infinite;
+            font-size: 1.4rem;
+            animation: floatHeart 7s ease-in-out infinite;
         }
 
-        .floating-hearts i:nth-child(1) { top: 8%; left: 8%; animation-delay: 0s; font-size: 2rem; }
-        .floating-hearts i:nth-child(2) { top: 15%; right: 12%; animation-delay: 1.5s; font-size: 1.5rem; }
-        .floating-hearts i:nth-child(3) { bottom: 25%; left: 6%; animation-delay: 3s; font-size: 2.4rem; }
-        .floating-hearts i:nth-child(4) { bottom: 15%; right: 8%; animation-delay: 4.5s; font-size: 1.8rem; }
-        .floating-hearts i:nth-child(5) { top: 45%; left: 45%; animation-delay: 2s; font-size: 3.2rem; opacity: 0.03; }
+        .floating-hearts i:nth-child(1) { top: 8%; left: 6%; animation-delay: 0s; font-size: 2rem; color: rgba(212, 175, 55, 0.07); }
+        .floating-hearts i:nth-child(2) { top: 18%; right: 10%; animation-delay: 1.8s; font-size: 1.5rem; }
+        .floating-hearts i:nth-child(3) { bottom: 28%; left: 5%; animation-delay: 3.2s; font-size: 2.4rem; color: rgba(212, 175, 55, 0.06); }
+        .floating-hearts i:nth-child(4) { bottom: 18%; right: 6%; animation-delay: 4.8s; font-size: 1.7rem; }
+        .floating-hearts i:nth-child(5) { top: 48%; left: 48%; animation-delay: 2.4s; font-size: 3.2rem; opacity: 0.025; }
 
         .hero-content {
             position: relative;
@@ -176,24 +165,24 @@
 
         .hero-badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            padding: 8px 24px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 8px 30px;
             border-radius: 50px;
             font-size: 0.7rem;
-            letter-spacing: 6px;
+            letter-spacing: 7px;
             text-transform: uppercase;
             color: #5a3e36;
-            border: 1px solid rgba(255, 215, 200, 0.5);
-            margin-bottom: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            margin-bottom: 18px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 400;
         }
 
         .hero .invitation-text {
             font-family: 'Parisienne', cursive;
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             color: #6a453a;
             margin: 8px 0 4px;
             letter-spacing: 2px;
@@ -201,62 +190,70 @@
 
         .hero .invitation-text-small {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #7a5a50;
             font-weight: 400;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
             margin-bottom: 15px;
         }
 
         .hero h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 4rem;
+            font-size: 4.2rem;
             color: #3d2a23;
             line-height: 1.1;
             margin-bottom: 8px;
-            text-shadow: 4px 4px 0 rgba(255, 200, 180, 0.15);
+            text-shadow: 3px 3px 0 rgba(255, 200, 180, 0.12);
         }
 
         .hero h1 .ampersand {
-            color: #c0392b;
-            font-size: 3.6rem;
+            background: linear-gradient(135deg, #c0392b, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3.8rem;
         }
 
         .hero-btn {
             display: inline-block;
-            padding: 14px 40px;
-            background: #8b4c3c;
+            padding: 14px 48px;
+            background: linear-gradient(135deg, #8b4c3c, #a8654a);
             color: #fff;
             border-radius: 60px;
             text-decoration: none;
             font-weight: 400;
             letter-spacing: 3px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            border: none;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.15);
             cursor: pointer;
-            box-shadow: 0 12px 30px rgba(139, 76, 60, 0.3);
+            box-shadow: 0 12px 35px rgba(139, 76, 60, 0.25);
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
             -webkit-tap-highlight-color: transparent;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 45px rgba(139, 76, 60, 0.35);
+            background: linear-gradient(135deg, #7a3d2e, #8b4c3c);
         }
 
         .hero-btn:active {
             transform: scale(0.95);
         }
 
-        /* ===== СЕКЦИЯ ПАРЫ ===== */
         .couple-section {
             padding: 60px 0 50px;
-            background: #fffbf9;
+            background: linear-gradient(180deg, #fffbf9 0%, #faf5f0 100%);
         }
 
         .couple-row {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
             margin-top: 15px;
         }
@@ -268,19 +265,38 @@
         }
 
         .couple-item .photo-wrap {
-            width: 170px;
-            height: 170px;
+            width: 175px;
+            height: 175px;
             border-radius: 50%;
             overflow: hidden;
             margin: 0 auto 12px;
-            border: 6px solid #fff;
-            box-shadow: 0 12px 30px rgba(90, 62, 54, 0.15);
-            transition: transform 0.3s ease;
+            border: 5px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 12px 40px rgba(90, 62, 54, 0.12), 0 0 50px rgba(212, 175, 55, 0.04);
+            transition: transform 0.35s ease;
             background: #f0ddd6;
+            position: relative;
         }
 
-        .couple-item .photo-wrap:active {
-            transform: scale(0.95);
+        .couple-item .photo-wrap::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, #d4af37, #f5e6b8, #d4af37) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            animation: borderGlow 3.5s ease-in-out infinite;
+        }
+
+        .couple-item .photo-wrap:hover {
+            transform: scale(1.02);
         }
 
         .couple-item .photo-wrap img {
@@ -292,42 +308,57 @@
 
         .couple-item h3 {
             font-family: 'Great Vibes', cursive;
-            font-size: 2rem;
+            font-size: 2.1rem;
             color: #4d322a;
             margin-top: 4px;
         }
 
         .couple-item .role {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            color: #a17a6e;
-            letter-spacing: 4px;
+            font-size: 0.65rem;
+            color: #a08070;
+            letter-spacing: 5px;
             text-transform: uppercase;
             font-weight: 400;
             margin-top: 2px;
         }
 
         .heart-divider-inline {
-            font-size: 2.8rem;
-            color: #c0392b;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #c0392b, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             animation: pulseHeart 1.8s infinite;
-            text-shadow: 0 0 40px rgba(192, 57, 43, 0.15);
-            padding: 0 6px;
+            padding: 0 8px;
             flex-shrink: 0;
         }
 
-        /* ===== ПРИВЕТСТВИЕ ===== */
         .greeting-section {
-            padding: 40px 0 35px;
-            background: #fffbf9;
+            padding: 45px 0 35px;
+            background: linear-gradient(180deg, #faf5f0 0%, #f5ede8 100%);
             text-align: center;
-            border-top: 2px dashed #f0d2ca;
-            border-bottom: 2px dashed #f0d2ca;
+            border-top: 2px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+        }
+
+        .greeting-section::before {
+            content: '✦ ✦ ✦';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: #d4af37;
+            letter-spacing: 18px;
+            background: #faf5f0;
+            padding: 0 20px;
         }
 
         .greeting-section .greeting-text {
             font-family: 'Parisienne', cursive;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: #4d322a;
             max-width: 700px;
             margin: 0 auto;
@@ -336,7 +367,10 @@
         }
 
         .greeting-section .greeting-text .highlight {
-            color: #8b4c3c;
+            background: linear-gradient(135deg, #8b4c3c, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .greeting-section .greeting-sub {
@@ -348,16 +382,32 @@
             padding: 0 10px;
         }
 
-        /* ===== СЕКЦИЯ ПРИГЛАШЕНИЯ ===== */
+        .greeting-section .greeting-sub i {
+            color: #d4af37;
+            margin: 0 5px;
+        }
+
         .invite-section {
             padding: 50px 0 60px;
-            background: linear-gradient(145deg, #f8e3dd, #f0d2ca);
+            background: linear-gradient(145deg, #f5ede8, #f0e2da);
             text-align: center;
+            position: relative;
+        }
+
+        .invite-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, #c0392b, #d4af37, transparent);
+            opacity: 0.25;
         }
 
         .invite-section .invite-text {
             font-family: 'Parisienne', cursive;
-            font-size: 2rem;
+            font-size: 2.1rem;
             color: #3d2a23;
             line-height: 1.4;
             max-width: 700px;
@@ -366,15 +416,19 @@
         }
 
         .invite-section .invite-text .highlight {
-            color: #8b4c3c;
+            background: linear-gradient(135deg, #8b4c3c, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .invite-section .invite-text-small {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
             color: #5a3e36;
             font-weight: 400;
-            letter-spacing: 2px;
+            font-style: italic;
+            letter-spacing: 0.5px;
             max-width: 650px;
             margin: 0 auto 25px;
             line-height: 1.7;
@@ -382,30 +436,41 @@
         }
 
         .invite-section .invite-text-small i {
-            color: #c0392b;
-            margin: 0 4px;
+            color: #d4af37;
+            margin: 0 3px;
         }
 
         .invite-card {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            padding: 28px 20px;
+            padding: 30px 24px;
             border-radius: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.7);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+            border: 2px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.05), 0 0 60px rgba(212, 175, 55, 0.02);
             max-width: 800px;
             width: 100%;
             text-align: left;
+            position: relative;
+        }
+
+        .invite-card::before {
+            content: '✦';
+            position: absolute;
+            top: -10px;
+            right: 24px;
+            font-size: 1rem;
+            color: #d4af37;
+            opacity: 0.35;
         }
 
         .invite-card .card-line {
             display: flex;
             align-items: flex-start;
-            gap: 14px;
+            gap: 16px;
             padding: 12px 0;
-            border-bottom: 1px solid rgba(139, 76, 60, 0.08);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.06);
         }
 
         .invite-card .card-line:last-child {
@@ -414,8 +479,11 @@
 
         .invite-card .card-icon {
             font-size: 1.3rem;
-            color: #8b4c3c;
-            min-width: 32px;
+            background: linear-gradient(135deg, #8b4c3c, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            min-width: 34px;
             text-align: center;
             margin-top: 2px;
             flex-shrink: 0;
@@ -423,10 +491,10 @@
 
         .invite-card .card-label {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #a17a6e;
+            letter-spacing: 2.5px;
+            color: #a08070;
             font-weight: 500;
             margin-bottom: 2px;
         }
@@ -437,7 +505,6 @@
             color: #3d2a23;
             font-weight: 500;
             line-height: 1.4;
-            word-break: break-word;
         }
 
         .invite-card .card-value small {
@@ -455,42 +522,75 @@
         }
 
         .invite-card .card-value .highlight-text {
-            color: #8b4c3c;
+            background: linear-gradient(135deg, #8b4c3c, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 600;
         }
 
-        /* ===== ДЕТАЛЬНАЯ ИНФОРМАЦИЯ ===== */
+        .lace-divider {
+            text-align: center;
+            font-size: 1.6rem;
+            color: #d4af37;
+            letter-spacing: 10px;
+            opacity: 0.5;
+            margin: 10px 0;
+            font-family: 'Parisienne', cursive;
+        }
+
+        .lace-divider i {
+            color: #c0392b;
+            margin: 0 4px;
+        }
+
         .details-section {
             padding: 50px 0 60px;
-            background: #fffbf9;
+            background: linear-gradient(180deg, #faf5f0 0%, #fffbf9 100%);
         }
 
         .details-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 18px;
             margin-top: 20px;
         }
 
         .detail-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 24px 18px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 215, 200, 0.3);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 26px 20px;
+            border-radius: 28px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
             text-align: center;
             transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .detail-card:active {
-            transform: scale(0.97);
+        .detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, #c0392b, #d4af37, transparent);
+            opacity: 0.2;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-3px);
         }
 
         .detail-card .detail-icon {
             font-size: 2rem;
-            color: #8b4c3c;
+            background: linear-gradient(135deg, #8b4c3c, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 10px;
         }
 
@@ -510,37 +610,50 @@
 
         .detail-card .badge {
             display: inline-block;
-            background: #8b4c3c;
+            background: linear-gradient(135deg, #8b4c3c, #a8654a);
             color: #fff;
-            padding: 3px 14px;
+            padding: 3px 16px;
             border-radius: 30px;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             font-family: 'Montserrat', sans-serif;
             margin-top: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
         }
 
         .detail-card .badge.pink {
-            background: #c0392b;
+            background: linear-gradient(135deg, #c0392b, #d46a5a);
         }
 
-        /* ===== RSVP ===== */
         .rsvp-section {
-            padding: 60px 16px 50px;
-            background: linear-gradient(160deg, #f0d2ca, #e8c4bb);
+            padding: 60px 20px 50px;
+            background: linear-gradient(160deg, #f0d2ca, #e8c4bb, #e0b8ae);
             text-align: center;
+            position: relative;
+        }
+
+        .rsvp-section::before {
+            content: '✦ ✦ ✦';
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: rgba(212, 175, 55, 0.25);
+            letter-spacing: 18px;
         }
 
         .rsvp-box {
             max-width: 600px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.55);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            padding: 35px 20px;
-            border-radius: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            padding: 40px 24px;
+            border-radius: 45px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.05);
         }
 
         .rsvp-box h2 {
@@ -555,16 +668,21 @@
             font-size: 1.05rem;
             color: #5a3e36;
             margin-bottom: 20px;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .rsvp-box .rsvp-date {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             color: #7a5a50;
             margin-bottom: 18px;
+        }
+
+        .rsvp-box .rsvp-date strong {
+            color: #8b4c3c;
+            font-weight: 600;
         }
 
         .rsvp-contacts {
@@ -580,18 +698,23 @@
             justify-content: center;
             gap: 10px;
             padding: 12px 20px;
-            background: #8b4c3c;
+            background: linear-gradient(135deg, #8b4c3c, #a8654a);
             color: #fff;
             border-radius: 60px;
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.85rem;
             letter-spacing: 1px;
-            transition: all 0.3s;
-            border: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
             width: 100%;
+        }
+
+        .rsvp-contacts a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 76, 60, 0.2);
         }
 
         .rsvp-contacts a:active {
@@ -606,7 +729,7 @@
             background: #25D366;
         }
 
-        .rsvp-contacts a.whatsapp:active {
+        .rsvp-contacts a.whatsapp:hover {
             background: #1da851;
         }
 
@@ -614,14 +737,13 @@
             background: #6c5b55;
         }
 
-        .rsvp-contacts a.email:active {
+        .rsvp-contacts a.email:hover {
             background: #544640;
         }
 
-        /* ===== МУЗЫКА ===== */
         .music-section {
-            padding: 50px 16px 60px;
-            background: #fffbf9;
+            padding: 50px 20px 60px;
+            background: linear-gradient(180deg, #fffbf9 0%, #faf5f0 100%);
             text-align: center;
         }
 
@@ -632,21 +754,44 @@
         }
 
         .music-heart-btn {
-            width: 120px;
-            height: 120px;
+            width: 128px;
+            height: 128px;
             border-radius: 50%;
             background: linear-gradient(145deg, #fce9e6, #f5d5ce);
             border: 3px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 12px 30px rgba(192, 57, 43, 0.15);
+            box-shadow: 0 12px 40px rgba(192, 57, 43, 0.12), 0 0 50px rgba(212, 175, 55, 0.03);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 4.2rem;
             color: #c0392b;
             position: relative;
             -webkit-tap-highlight-color: transparent;
+        }
+
+        .music-heart-btn::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, #d4af37, #f5e6b8, #d4af37) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            animation: borderGlow 3.5s ease-in-out infinite;
+        }
+
+        .music-heart-btn:hover {
+            transform: scale(1.03) rotate(-2deg);
+            box-shadow: 0 16px 50px rgba(192, 57, 43, 0.2);
         }
 
         .music-heart-btn:active {
@@ -654,33 +799,40 @@
         }
 
         .music-heart-btn .fa-heart {
-            transition: all 0.3s ease;
-            filter: drop-shadow(0 6px 16px rgba(192, 57, 43, 0.2));
+            transition: all 0.4s ease;
+            filter: drop-shadow(0 6px 20px rgba(192, 57, 43, 0.15));
         }
 
         .music-heart-btn.playing .fa-heart {
-            animation: heartBeat 0.8s infinite alternate;
-            color: #e74c3c;
-            text-shadow: 0 0 40px rgba(231, 76, 60, 0.5);
+            animation: pulseHeart 0.8s infinite alternate;
+            background: linear-gradient(135deg, #e74c3c, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 6px 30px rgba(231, 76, 60, 0.3));
         }
 
         .music-label {
-            margin-top: 20px;
+            margin-top: 22px;
             font-size: 1.1rem;
             font-weight: 400;
             letter-spacing: 4px;
             color: #4d322a;
             background: rgba(255, 240, 230, 0.6);
-            padding: 10px 30px;
+            padding: 10px 34px;
             border-radius: 60px;
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 215, 200, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.12);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             user-select: none;
             font-family: 'Cormorant Garamond', serif;
             -webkit-tap-highlight-color: transparent;
+        }
+
+        .music-label:hover {
+            background: rgba(255, 235, 220, 0.8);
         }
 
         .music-label:active {
@@ -690,464 +842,207 @@
         .music-note {
             margin-top: 16px;
             font-size: 0.9rem;
-            color: #a17a6e;
+            color: #a08070;
             letter-spacing: 2px;
             font-weight: 300;
             font-family: 'Cormorant Garamond', serif;
         }
 
-        /* ===== ФУТЕР ===== */
         .footer-section {
-            padding: 40px 16px 30px;
-            background: #3d2a23;
+            padding: 45px 20px 35px;
+            background: linear-gradient(160deg, #3d2a23, #2d1a13);
             text-align: center;
             color: #d4b8ae;
+            position: relative;
+        }
+
+        .footer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, #c0392b, #d4af37, transparent);
+            opacity: 0.2;
         }
 
         .footer-section .footer-hearts {
             font-size: 1.6rem;
-            color: #c0392b;
             letter-spacing: 12px;
             margin-bottom: 12px;
         }
 
+        .footer-section .footer-hearts i:nth-child(1) { color: #c0392b; }
+        .footer-section .footer-hearts i:nth-child(2) { color: #d4af37; }
+        .footer-section .footer-hearts i:nth-child(3) { color: #c0392b; }
+
         .footer-section .couple-names {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             color: #f0d2ca;
             margin-bottom: 8px;
+        }
+
+        .footer-section .couple-names .ampersand {
+            color: #d4af37;
         }
 
         .footer-section p {
             font-family: 'Cormorant Garamond', serif;
             font-size: 0.9rem;
             letter-spacing: 2px;
-            opacity: 0.7;
+            opacity: 0.65;
         }
 
-        /* ===== АДАПТИВ ===== */
-
-        /* Планшеты и маленькие ноутбуки */
         @media (max-width: 992px) {
-            .hero h1 { font-size: 3.5rem; }
+            .hero h1 { font-size: 3.6rem; }
             .hero .invitation-text { font-size: 1.4rem; }
-            .section-title { font-size: 2.4rem; }
+            .section-title { font-size: 2.5rem; }
             .invite-card { padding: 24px 18px; }
             .details-grid { grid-template-columns: 1fr 1fr; }
+            .couple-item .photo-wrap { width: 155px; height: 155px; }
         }
 
-        /* Телефоны (горизонтальная ориентация и большие телефоны) */
         @media (max-width: 768px) {
-            .hero {
-                min-height: 90vh;
-                padding: 40px 14px 50px;
-            }
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .hero h1 .ampersand {
-                font-size: 2.4rem;
-            }
-            .hero .invitation-text {
-                font-size: 1.2rem;
-            }
-            .hero .invitation-text-small {
-                font-size: 0.9rem;
-                letter-spacing: 3px;
-            }
-            .hero-badge {
-                font-size: 0.6rem;
-                padding: 6px 18px;
-                letter-spacing: 4px;
-            }
-            .hero-btn {
-                padding: 12px 32px;
-                font-size: 0.8rem;
-                letter-spacing: 2px;
-            }
+            .hero { min-height: 90vh; padding: 40px 16px 50px; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero h1 .ampersand { font-size: 2.4rem; }
+            .hero .invitation-text { font-size: 1.2rem; }
+            .hero .invitation-text-small { font-size: 0.85rem; letter-spacing: 4px; }
+            .hero-badge { font-size: 0.55rem; padding: 6px 20px; letter-spacing: 5px; }
+            .hero-btn { padding: 12px 32px; font-size: 0.75rem; letter-spacing: 2px; }
 
-            .section-title {
-                font-size: 2.2rem;
-            }
-            .section-subtitle {
-                font-size: 0.8rem;
-                letter-spacing: 3px;
-                margin-bottom: 20px;
-            }
+            .section-title { font-size: 2.2rem; }
+            .section-subtitle { font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 20px; }
 
-            .couple-item .photo-wrap {
-                width: 140px;
-                height: 140px;
-                border-width: 5px;
-            }
-            .couple-item h3 {
-                font-size: 1.7rem;
-            }
-            .heart-divider-inline {
-                font-size: 2.2rem;
-            }
-            .couple-row {
-                gap: 12px;
-            }
+            .couple-item .photo-wrap { width: 135px; height: 135px; border-width: 4px; }
+            .couple-item h3 { font-size: 1.7rem; }
+            .heart-divider-inline { font-size: 2.4rem; }
+            .couple-row { gap: 14px; }
 
-            .greeting-section .greeting-text {
-                font-size: 1.5rem;
-            }
-            .greeting-section .greeting-sub {
-                font-size: 0.9rem;
-            }
+            .greeting-section .greeting-text { font-size: 1.5rem; }
+            .greeting-section .greeting-sub { font-size: 0.9rem; }
 
-            .invite-section .invite-text {
-                font-size: 1.7rem;
-            }
-            .invite-section .invite-text-small {
-                font-size: 0.95rem;
-            }
+            .invite-section .invite-text { font-size: 1.7rem; }
+            .invite-section .invite-text-small { font-size: 0.9rem; }
 
-            .invite-card .card-value {
-                font-size: 0.95rem;
-            }
-            .invite-card .card-value small {
-                font-size: 0.8rem;
-            }
-            .invite-card .card-value .address-detail {
-                font-size: 0.8rem;
-            }
+            .invite-card .card-value { font-size: 0.95rem; }
+            .invite-card .card-value small { font-size: 0.8rem; }
+            .invite-card .card-value .address-detail { font-size: 0.8rem; }
 
-            .details-grid {
-                grid-template-columns: 1fr;
-                gap: 14px;
-            }
-            .detail-card {
-                padding: 20px 16px;
-            }
-            .detail-card h4 {
-                font-size: 1.4rem;
-            }
-            .detail-card p {
-                font-size: 0.9rem;
-            }
+            .details-grid { grid-template-columns: 1fr; gap: 14px; }
+            .detail-card { padding: 20px 16px; }
+            .detail-card h4 { font-size: 1.4rem; }
+            .detail-card p { font-size: 0.9rem; }
 
-            .rsvp-box {
-                padding: 28px 16px;
-                border-radius: 32px;
-            }
-            .rsvp-box h2 {
-                font-size: 2.2rem;
-            }
-            .rsvp-box p {
-                font-size: 0.95rem;
-            }
+            .rsvp-box { padding: 30px 18px; border-radius: 35px; }
+            .rsvp-box h2 { font-size: 2.2rem; }
+            .rsvp-box p { font-size: 0.95rem; }
 
-            .music-heart-btn {
-                width: 100px;
-                height: 100px;
-                font-size: 3.4rem;
-            }
-            .music-label {
-                font-size: 1rem;
-                padding: 8px 24px;
-            }
+            .music-heart-btn { width: 105px; height: 105px; font-size: 3.4rem; }
+            .music-label { font-size: 0.95rem; padding: 8px 24px; }
 
-            .footer-section .couple-names {
-                font-size: 1.8rem;
-            }
+            .footer-section .couple-names { font-size: 1.9rem; }
         }
 
-        /* Маленькие телефоны (до 480px) */
         @media (max-width: 480px) {
-            .hero {
-                min-height: 85vh;
-                padding: 30px 12px 40px;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero h1 .ampersand {
-                font-size: 2rem;
-            }
-            .hero .invitation-text {
-                font-size: 1rem;
-            }
-            .hero .invitation-text-small {
-                font-size: 0.8rem;
-                letter-spacing: 2px;
-            }
-            .hero-badge {
-                font-size: 0.55rem;
-                padding: 5px 14px;
-                letter-spacing: 3px;
-            }
-            .hero-btn {
-                padding: 10px 26px;
-                font-size: 0.75rem;
-                letter-spacing: 2px;
-            }
+            .hero { min-height: 85vh; padding: 30px 14px 40px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero h1 .ampersand { font-size: 2rem; }
+            .hero .invitation-text { font-size: 1rem; }
+            .hero .invitation-text-small { font-size: 0.75rem; letter-spacing: 3px; }
+            .hero-badge { font-size: 0.5rem; padding: 5px 14px; letter-spacing: 4px; }
+            .hero-btn { padding: 10px 24px; font-size: 0.7rem; letter-spacing: 2px; }
 
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .section-subtitle {
-                font-size: 0.7rem;
-                letter-spacing: 2px;
-                margin-bottom: 16px;
-            }
+            .section-title { font-size: 1.9rem; }
+            .section-subtitle { font-size: 0.65rem; letter-spacing: 2px; margin-bottom: 16px; }
 
-            .couple-item .photo-wrap {
-                width: 110px;
-                height: 110px;
-                border-width: 4px;
-            }
-            .couple-item h3 {
-                font-size: 1.4rem;
-            }
-            .couple-item .role {
-                font-size: 0.6rem;
-                letter-spacing: 3px;
-            }
-            .heart-divider-inline {
-                font-size: 1.8rem;
-                padding: 0 4px;
-            }
-            .couple-row {
-                gap: 8px;
-            }
+            .couple-item .photo-wrap { width: 105px; height: 105px; border-width: 4px; }
+            .couple-item h3 { font-size: 1.4rem; }
+            .couple-item .role { font-size: 0.55rem; letter-spacing: 4px; }
+            .heart-divider-inline { font-size: 1.8rem; padding: 0 4px; }
+            .couple-row { gap: 8px; }
 
-            .greeting-section {
-                padding: 30px 0 25px;
-            }
-            .greeting-section .greeting-text {
-                font-size: 1.3rem;
-            }
-            .greeting-section .greeting-sub {
-                font-size: 0.8rem;
-                margin-top: 8px;
-            }
+            .greeting-section { padding: 30px 0 25px; }
+            .greeting-section .greeting-text { font-size: 1.3rem; }
+            .greeting-section .greeting-sub { font-size: 0.8rem; margin-top: 8px; }
 
-            .invite-section {
-                padding: 35px 0 40px;
-            }
-            .invite-section .invite-text {
-                font-size: 1.4rem;
-            }
-            .invite-section .invite-text-small {
-                font-size: 0.85rem;
-                letter-spacing: 1px;
-            }
+            .invite-section { padding: 35px 0 40px; }
+            .invite-section .invite-text { font-size: 1.4rem; }
+            .invite-section .invite-text-small { font-size: 0.8rem; letter-spacing: 0; }
 
-            .invite-card {
-                padding: 18px 14px;
-                border-radius: 28px;
-            }
-            .invite-card .card-line {
-                padding: 10px 0;
-                gap: 10px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .invite-card .card-icon {
-                font-size: 1.1rem;
-                min-width: 28px;
-            }
-            .invite-card .card-label {
-                font-size: 0.55rem;
-                letter-spacing: 1.5px;
-            }
-            .invite-card .card-value {
-                font-size: 0.85rem;
-            }
-            .invite-card .card-value small {
-                font-size: 0.75rem;
-            }
-            .invite-card .card-value .address-detail {
-                font-size: 0.75rem;
-            }
+            .invite-card { padding: 16px 12px; border-radius: 28px; }
+            .invite-card .card-line { padding: 10px 0; gap: 10px; flex-direction: column; align-items: flex-start; }
+            .invite-card .card-icon { font-size: 1.1rem; min-width: 26px; }
+            .invite-card .card-label { font-size: 0.5rem; letter-spacing: 2px; }
+            .invite-card .card-value { font-size: 0.85rem; }
+            .invite-card .card-value small { font-size: 0.75rem; }
+            .invite-card .card-value .address-detail { font-size: 0.75rem; }
 
-            .detail-card {
-                padding: 16px 12px;
-                border-radius: 18px;
-            }
-            .detail-card .detail-icon {
-                font-size: 1.6rem;
-                margin-bottom: 6px;
-            }
-            .detail-card h4 {
-                font-size: 1.2rem;
-            }
-            .detail-card p {
-                font-size: 0.8rem;
-            }
-            .detail-card .badge {
-                font-size: 0.5rem;
-                padding: 2px 10px;
-                letter-spacing: 1.5px;
-            }
+            .detail-card { padding: 16px 12px; border-radius: 18px; }
+            .detail-card .detail-icon { font-size: 1.6rem; margin-bottom: 6px; }
+            .detail-card h4 { font-size: 1.2rem; }
+            .detail-card p { font-size: 0.8rem; }
+            .detail-card .badge { font-size: 0.45rem; padding: 2px 10px; letter-spacing: 1.5px; }
 
-            .rsvp-box {
-                padding: 22px 14px;
-                border-radius: 24px;
-            }
-            .rsvp-box h2 {
-                font-size: 1.8rem;
-            }
-            .rsvp-box p {
-                font-size: 0.85rem;
-                margin-bottom: 14px;
-            }
-            .rsvp-box .rsvp-date {
-                font-size: 0.65rem;
-                letter-spacing: 2px;
-                margin-bottom: 14px;
-            }
-            .rsvp-contacts a {
-                padding: 10px 16px;
-                font-size: 0.75rem;
-            }
-            .rsvp-contacts a i {
-                font-size: 0.9rem;
-            }
+            .rsvp-box { padding: 22px 14px; border-radius: 24px; }
+            .rsvp-box h2 { font-size: 1.8rem; }
+            .rsvp-box p { font-size: 0.85rem; margin-bottom: 14px; }
+            .rsvp-box .rsvp-date { font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 14px; }
+            .rsvp-contacts a { padding: 10px 16px; font-size: 0.75rem; }
 
-            .music-heart-btn {
-                width: 85px;
-                height: 85px;
-                font-size: 2.8rem;
-                border-width: 2px;
-            }
-            .music-label {
-                font-size: 0.9rem;
-                padding: 6px 18px;
-                letter-spacing: 3px;
-                margin-top: 14px;
-            }
-            .music-note {
-                font-size: 0.8rem;
-            }
-            .music-section {
-                padding: 35px 12px 40px;
-            }
+            .music-heart-btn { width: 85px; height: 85px; font-size: 2.8rem; border-width: 2px; }
+            .music-label { font-size: 0.85rem; padding: 6px 18px; letter-spacing: 3px; margin-top: 14px; }
+            .music-note { font-size: 0.75rem; }
+            .music-section { padding: 35px 14px 40px; }
 
-            .footer-section {
-                padding: 30px 12px 24px;
-            }
-            .footer-section .footer-hearts {
-                font-size: 1.2rem;
-                letter-spacing: 8px;
-            }
-            .footer-section .couple-names {
-                font-size: 1.5rem;
-            }
-            .footer-section p {
-                font-size: 0.75rem;
-            }
+            .footer-section { padding: 30px 14px 24px; }
+            .footer-section .footer-hearts { font-size: 1.2rem; letter-spacing: 8px; }
+            .footer-section .couple-names { font-size: 1.5rem; }
+            .footer-section p { font-size: 0.75rem; }
 
-            .section-divider {
-                font-size: 1.2rem;
-                letter-spacing: 8px;
-            }
+            .lace-divider { font-size: 1.3rem; letter-spacing: 8px; }
         }
 
-        /* Очень маленькие телефоны (до 360px) */
         @media (max-width: 360px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            .hero h1 .ampersand {
-                font-size: 1.6rem;
-            }
-            .hero .invitation-text {
-                font-size: 0.85rem;
-            }
-            .hero-btn {
-                padding: 8px 20px;
-                font-size: 0.7rem;
-            }
+            .hero h1 { font-size: 1.8rem; }
+            .hero h1 .ampersand { font-size: 1.6rem; }
+            .hero .invitation-text { font-size: 0.85rem; }
+            .hero-btn { padding: 8px 18px; font-size: 0.65rem; }
 
-            .couple-item .photo-wrap {
-                width: 90px;
-                height: 90px;
-                border-width: 3px;
-            }
-            .couple-item h3 {
-                font-size: 1.2rem;
-            }
-            .heart-divider-inline {
-                font-size: 1.4rem;
-            }
+            .couple-item .photo-wrap { width: 85px; height: 85px; border-width: 3px; }
+            .couple-item h3 { font-size: 1.2rem; }
+            .heart-divider-inline { font-size: 1.4rem; }
 
-            .section-title {
-                font-size: 1.5rem;
-            }
-            .greeting-section .greeting-text {
-                font-size: 1.1rem;
-            }
-            .invite-section .invite-text {
-                font-size: 1.2rem;
-            }
-            .invite-card .card-value {
-                font-size: 0.75rem;
-            }
+            .section-title { font-size: 1.6rem; }
+            .greeting-section .greeting-text { font-size: 1.1rem; }
+            .invite-section .invite-text { font-size: 1.2rem; }
+            .invite-card .card-value { font-size: 0.75rem; }
 
-            .rsvp-box h2 {
-                font-size: 1.5rem;
-            }
-            .rsvp-box p {
-                font-size: 0.75rem;
-            }
+            .rsvp-box h2 { font-size: 1.5rem; }
+            .rsvp-box p { font-size: 0.75rem; }
 
-            .music-heart-btn {
-                width: 70px;
-                height: 70px;
-                font-size: 2.2rem;
-            }
-            .music-label {
-                font-size: 0.75rem;
-                padding: 5px 14px;
-                letter-spacing: 2px;
-            }
+            .music-heart-btn { width: 70px; height: 70px; font-size: 2.2rem; }
+            .music-label { font-size: 0.75rem; padding: 5px 14px; letter-spacing: 2px; }
         }
 
-        /* Для устройств с touch (убираем hover эффекты) */
         @media (hover: none) {
-            .couple-item .photo-wrap:hover {
-                transform: none;
-            }
-            .hero-btn:hover {
-                transform: none;
-                background: #8b4c3c;
-            }
-            .music-heart-btn:hover {
-                transform: none;
-            }
-            .detail-card:hover {
-                transform: none;
-            }
-            .rsvp-contacts a:hover {
-                transform: none;
-            }
+            .couple-item .photo-wrap:hover { transform: none; }
+            .hero-btn:hover { transform: none; background: linear-gradient(135deg, #8b4c3c, #a8654a); }
+            .music-heart-btn:hover { transform: none; }
+            .detail-card:hover { transform: none; }
+            .rsvp-contacts a:hover { transform: none; }
         }
 
-        /* Для устройств с высоким DPI */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .hero {
-                background: linear-gradient(160deg, #fce9e6 0%, #f8d5d0 60%, #f0c4bb 100%);
-            }
-        }
-
-        /* Безопасные отступы для iPhone Notch */
         @supports (padding: max(0px)) {
-            .hero {
-                padding-left: max(16px, env(safe-area-inset-left));
-                padding-right: max(16px, env(safe-area-inset-right));
-            }
-            .footer-section {
-                padding-bottom: max(30px, env(safe-area-inset-bottom));
-            }
+            .hero { padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); }
+            .footer-section { padding-bottom: max(35px, env(safe-area-inset-bottom)); }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
         <div class="floating-hearts">
             <i class="fas fa-heart"></i>
@@ -1177,17 +1072,15 @@
         </div>
     </section>
 
-    <!-- ===== СЕКЦИЯ ПАРЫ ===== -->
     <section class="couple-section" id="couple">
         <div class="container">
             <h2 class="section-title animate-on-load delay-1">Жених & Невеста</h2>
             <p class="section-subtitle animate-on-load delay-2">Сердцем к сердцу</p>
 
             <div class="couple-row">
-                <!-- Жених -->
                 <div class="couple-item animate-on-load delay-3">
                     <div class="photo-wrap">
-                        <img src="жених.jpg" alt="Кирилл - жених" loading="lazy" />
+                        <img src="жених.jpg" alt="Кирилл" loading="lazy" />
                     </div>
                     <h3>Кирилл</h3>
                     <div class="role">Жених</div>
@@ -1197,10 +1090,9 @@
                     <i class="fas fa-heart"></i>
                 </div>
 
-                <!-- Невеста -->
                 <div class="couple-item animate-on-load delay-5">
                     <div class="photo-wrap">
-                        <img src="невеста.jpg" alt="Виктория - невеста" loading="lazy" />
+                        <img src="невеста.jpg" alt="Виктория" loading="lazy" />
                     </div>
                     <h3>Виктория</h3>
                     <div class="role">Невеста</div>
@@ -1209,21 +1101,19 @@
         </div>
     </section>
 
-    <!-- ===== ПРИВЕТСТВИЕ ===== -->
     <section class="greeting-section animate-on-load delay-2">
         <div class="container">
             <div class="greeting-text">
                 <span class="highlight">Дорогие</span> наши родные, близкие и <span class="highlight">друзья</span>!
             </div>
             <div class="greeting-sub">
-                <i class="fas fa-heart" style="color:#c0392b; margin:0 6px;"></i>
+                <i class="fas fa-heart"></i>
                 Мы рады приветствовать вас на нашем празднике любви
-                <i class="fas fa-heart" style="color:#c0392b; margin:0 6px;"></i>
+                <i class="fas fa-heart"></i>
             </div>
         </div>
     </section>
 
-    <!-- ===== ПРИГЛАШЕНИЕ С ДЕТАЛЯМИ ===== -->
     <section class="invite-section" id="invite">
         <div class="container">
             <div class="invite-text animate-on-load delay-1">
@@ -1251,7 +1141,7 @@
                         <div class="card-value">
                             Ресторан «<strong>Счастье</strong>»
                             <span class="address-detail">г. Москва, ул. Цветочная, д. 15, стр. 2</span>
-                            <span class="address-detail"><i class="fas fa-subway" style="color:#8b4c3c;"></i> м. «Парк культуры», выход к ул. Цветочной</span>
+                            <span class="address-detail"><i class="fas fa-subway" style="color:#d4af37;"></i> м. «Парк культуры», выход к ул. Цветочной</span>
                         </div>
                     </div>
                 </div>
@@ -1271,15 +1161,12 @@
                 </div>
             </div>
 
-            <div class="section-divider animate-on-load delay-3">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-heart"></i>
+            <div class="lace-divider animate-on-load delay-3">
+                <i class="fas fa-heart"></i> ✦ <i class="fas fa-heart"></i> ✦ <i class="fas fa-heart"></i>
             </div>
         </div>
     </section>
 
-    <!-- ===== ДЕТАЛЬНАЯ ИНФОРМАЦИЯ ===== -->
     <section class="details-section" id="details">
         <div class="container">
             <h2 class="section-title animate-on-load delay-1">Важная информация</h2>
@@ -1290,7 +1177,7 @@
                     <div class="detail-icon"><i class="fas fa-tshirt"></i></div>
                     <h4>Дресс-код</h4>
                     <p>Мы будем рады видеть вас в <strong>светлых и пастельных тонах</strong>.<br />
-                    <span style="font-size:0.85rem; color:#8b4c3c;">«Небесная элегантность»</span></p>
+                    <span style="font-size:0.85rem; color:#d4af37;">«Небесная элегантность»</span></p>
                     <span class="badge">Рекомендуем</span>
                 </div>
 
@@ -1298,7 +1185,7 @@
                     <div class="detail-icon"><i class="fas fa-users"></i></div>
                     <h4>+1 и дети</h4>
                     <p>Вы можете прийти со <strong>спутником</strong> — дайте нам знать заранее.<br />
-                    <i class="fas fa-child" style="color:#8b4c3c;"></i> <strong>Дети</strong> приветствуются, для них будет отдельная развлекательная программа.</p>
+                    <i class="fas fa-child" style="color:#d4af37;"></i> <strong>Дети</strong> приветствуются, для них будет отдельная развлекательная программа.</p>
                     <span class="badge pink">Семейный праздник</span>
                 </div>
 
@@ -1307,7 +1194,7 @@
                     <h4>О подарках</h4>
                     <p>Ваше присутствие — лучший подарок.<br />
                     Если вы хотите порадовать нас, мы будем рады <strong>денежному конверту</strong> или <strong>сертификатам</strong> на наши мечты.<br />
-                    <span style="font-size:0.85rem; color:#7a5a50;">Список пожеланий у организатора.</span></p>
+                    <span style="font-size:0.85rem; color:#a08070;">Список пожеланий у организатора.</span></p>
                     <span class="badge">С любовью</span>
                 </div>
 
@@ -1315,10 +1202,10 @@
                     <div class="detail-icon"><i class="fas fa-phone-alt"></i></div>
                     <h4>Координатор</h4>
                     <p>По всем вопросам обращайтесь к нашему <strong>организатору</strong>:</p>
-                    <p style="font-size:1.05rem; color:#8b4c3c; font-weight:600;">Анна</p>
+                    <p style="font-size:1.1rem; color:#8b4c3c; font-weight:600;">Анна</p>
                     <p style="font-size:0.85rem;">
-                        <i class="fas fa-phone" style="color:#8b4c3c;"></i> +7 (999) 456-78-90
-                        <br /><i class="fas fa-telegram" style="color:#8b4c3c;"></i> @anna_wedding_organizer
+                        <i class="fas fa-phone" style="color:#d4af37;"></i> +7 (999) 456-78-90
+                        <br /><i class="fas fa-telegram" style="color:#d4af37;"></i> @anna_wedding_organizer
                     </p>
                     <span class="badge pink">Всегда на связи</span>
                 </div>
@@ -1326,7 +1213,6 @@
         </div>
     </section>
 
-    <!-- ===== RSVP ===== -->
     <section class="rsvp-section" id="rsvp">
         <div class="container">
             <div class="rsvp-box animate-on-load delay-1">
@@ -1346,7 +1232,7 @@
                     </a>
                 </div>
 
-                <p style="margin-top:20px; font-size:0.85rem; opacity:0.7; letter-spacing:2px;">
+                <p style="margin-top:22px; font-size:0.9rem; opacity:0.7; letter-spacing:2px;">
                     <i class="fas fa-heart" style="color:#c0392b;"></i>
                     Будем ждать вас с нетерпением!
                     <i class="fas fa-heart" style="color:#c0392b;"></i>
@@ -1355,7 +1241,6 @@
         </div>
     </section>
 
-    <!-- ===== МУЗЫКА ===== -->
     <section class="music-section" id="music">
         <div class="container">
             <h2 class="section-title animate-on-load delay-1">Свадебная музыка</h2>
@@ -1373,7 +1258,6 @@
         </div>
     </section>
 
-    <!-- ===== ФУТЕР ===== -->
     <footer class="footer-section">
         <div class="container">
             <div class="footer-hearts">
@@ -1381,25 +1265,21 @@
                 <i class="fas fa-heart"></i>
                 <i class="fas fa-heart"></i>
             </div>
-            <div class="couple-names">Кирилл & Виктория</div>
+            <div class="couple-names">Кирилл <span class="ampersand">&</span> Виктория</div>
             <p>С любовью и благодарностью к каждому из вас</p>
-            <p style="margin-top:6px; font-size:0.75rem; opacity:0.5;">
+            <p style="margin-top:6px; font-size:0.75rem; opacity:0.4;">
                 <i class="far fa-calendar-alt"></i> 15 августа 2026
             </p>
         </div>
     </footer>
 
-    <!-- ===== АУДИО ===== -->
     <audio id="weddingAudio" loop preload="auto">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+        <source src="https://rus.hitmoz.org/song/76222729" type="audio/mpeg" />
         Ваш браузер не поддерживает аудио.
     </audio>
 
-    <!-- ===== JAVASCRIPT ===== -->
     <script>
         (function() {
-            "use strict";
-
             const audio = document.getElementById('weddingAudio');
             const musicBtn = document.getElementById('musicBtn');
             const heartIcon = document.getElementById('heartIcon');
@@ -1412,14 +1292,14 @@
                     musicBtn.classList.add('playing');
                     heartIcon.style.color = '#e74c3c';
                     musicLabel.textContent = '🎵 Музыка играет';
-                    musicLabel.style.background = 'rgba(200, 80, 60, 0.15)';
-                    musicLabel.style.borderColor = '#e74c3c';
+                    musicLabel.style.background = 'rgba(200, 80, 60, 0.1)';
+                    musicLabel.style.borderColor = '#d4af37';
                 } else {
                     musicBtn.classList.remove('playing');
                     heartIcon.style.color = '#c0392b';
                     musicLabel.textContent = '❤ Включить музыку';
                     musicLabel.style.background = 'rgba(255, 240, 230, 0.6)';
-                    musicLabel.style.borderColor = 'rgba(255, 215, 200, 0.3)';
+                    musicLabel.style.borderColor = 'rgba(212, 175, 55, 0.12)';
                 }
             }
 
@@ -1451,9 +1331,7 @@
             musicBtn.addEventListener('click', toggleMusic);
             musicLabel.addEventListener('click', toggleMusic);
 
-            musicBtn.addEventListener('touchstart', function(e) {
-                // Пассивный обработчик для touch устройств
-            }, { passive: true });
+            musicBtn.addEventListener('touchstart', function(e) {}, { passive: true });
 
             updateUI(false);
 
